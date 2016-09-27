@@ -1,1 +1,1 @@
-var cvModule = angular.module("cvModule", []);
+var castModule = angular.module("castModule", []);

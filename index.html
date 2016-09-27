@@ -12,15 +12,12 @@
 		<script src="home/js/homeModule.js"></script>
 		<script src="home/js/homeController.js"></script>
 		
-		<script src="cv/js/cvModule.js"></script>
-		<script src="cv/js/cvController.js"></script>
-		<script src="cv/js/cvDirective.js"></script>
+		<script src="cast/js/castModule.js"></script>
+		<script src="cast/js/castController.js"></script>
+		<script src="cast/js/castDirective.js"></script>
 		
-		<script src="projects/js/projectsModule.js"></script>
-		<script src="projects/js/projectsController.js"></script>
-		
-		<script src="contact/js/contactModule.js"></script>
-		<script src="contact/js/contactController.js"></script>
+		<script src="archive/js/archiveModule.js"></script>
+		<script src="archive/js/archiveController.js"></script>
 
 		<script src="js/indexModule.js"></script>
 		<script src="js/router.js"></script>
@@ -34,8 +31,9 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	
-	<body ng-app="indexModule" ng-controller="indexController" style="background-color: #333; margin-bottom: 60px;">
-		<nav class="navbar navbar-inverse navbar-fixed-top">
+	<body ng-app="indexModule" ng-controller="indexController" style="margin-bottom: 60px;">
+		<p>Comic title</p>
+		<nav class="navbar navbar-default">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -45,59 +43,19 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#/test">Brand</a>
 				</div>
 				
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							<a href="#/home">Home</a>
-						</li>
-						<li>
-							<a href="#/cv">CV</a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="#/contact">Contact</a>
-						</li>
-					</ul>
-
 					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="https://soundcloud.com/pyro-dragon" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a>
+						<li class="active">
+							<a href="#/">Comic</a>
 						</li>
 						<li>
-							<a href="http://steamcommunity.com/id/pyroteamkill/" target="_blank"><i class="fa fa-steam" aria-hidden="true"></i></a>
+							<a href="#/cast">Cast</a>
 						</li>
 						<li>
-							<a href="http://daily-dragon.tumblr.com/" target="_blank"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
-						</li>
-						<li>
-							<a href="https://www.linkedin.com/in/rpettefar" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-						</li>
-						<li>
-							<a href="http://stackexchange.com/users/875710/pyro" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
-						</li>
-						<li>
-							<a href="https://twitter.com/pyroteamkill" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-						</li>
-						<li>
-							<a href="pyroteamkill.deviantart.com" target="_blank"><i class="fa fa-deviantart" aria-hidden="true"></i></a>
-						</li>
-						<li>
-							<a href="https://github.com/pyro-dragon" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+							<a href="#/archive">Archive</a>
 						</li>
 					</ul>
 				</div>
@@ -105,13 +63,6 @@
 			</div>
 		<!-- /.container-fluid -->
 		</nav>
-		
-		<div class="jumbotron">
-			<div class="container text-center">
-				<h1>Rob Pettefar</h1>
-				<p>Software Engineer</p>
-			</div>
-		</div>
 	
 		<div class="page-container" ng-view></div>
 
