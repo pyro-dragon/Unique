@@ -1,0 +1,41 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+.body{
+	background-color: #333 !important;
+	height: auto !important;
+	margin-bottom: 90px;
+}
+
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+.jumbotron {
+	background: url("../pics/code-1076536_1920.jpg");
+}
+
+.jumbotron .container{
+	color: #efefef;
+	background-color: rgba(1, 1, 1, 0.5);
+	border-radius: 15px;
+}
+
+.page-container{
+	background-color: #efefef;
+	border-radius: 15px;
+	margin: 0 10% 30px 10%;
+	padding: 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "unique",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pyro-dragon/Unique.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pyro-dragon/Unique/issues"
+  },
+  "homepage": "https://github.com/pyro-dragon/Unique#readme",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-css": "^1.0.8",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "jquery": "^3.1.1"
+  }
+}

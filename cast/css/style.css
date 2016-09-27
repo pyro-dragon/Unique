@@ -1,0 +1,28 @@
+.skill-card {
+	width: 220px;
+	height: 100px;
+	border-radius: 15px;
+	background-color: #ffffff;
+	padding: 5px 10px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.skill-card img {
+	width: 200px;
+	position: relative;
+	top:-100%;
+}
+
+.skill-card-image{
+	height: 70px;
+	overflow: hidden;
+}
+
+.skill-card-caption {
+	height: 30px;
+}
+
+.skill-grid {
+	width: 100%;
+}
