@@ -6,8 +6,7 @@ indexModule.config(function($routeProvider) {
     })
     .when("/cast", {
         templateUrl: "cast/partial.html", 
-        controller: "castController",
-        css: "cast/css/style.css"
+        controller: "castController"
     })
     .when("/archive", {
         templateUrl: "archive/partial.html", 
