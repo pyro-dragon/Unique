@@ -9,6 +9,14 @@ body{
 	margin-bottom: 80px;
 }
 
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;
@@ -68,4 +76,20 @@ body{
 
 .nav-button p{
 	font-size: 12pt;
+}
+
+footer a{
+	font-weight: bold;
+	text-decoration: none;
+	color: inherit;
+}
+
+footer a:hover{
+	text-decoration: none;
+	color: inherit;
+}
+
+footer a:visited{
+	text-decoration: none;
+	color: inherit;
 }
