@@ -11,6 +11,7 @@ indexModule.config(function($routeProvider) {
     })
     .when("/archive", {
         templateUrl: "archive/partial.html", 
-        controller: "archiveController"
+        controller: "archiveController", 
+        css: "archive/css/style.css"
     });
 });
