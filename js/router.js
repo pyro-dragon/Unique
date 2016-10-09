@@ -13,5 +13,9 @@ indexModule.config(function($routeProvider) {
         templateUrl: "archive/partial.html", 
         controller: "archiveController", 
         css: "archive/css/style.css"
+    })
+    .when("/admin", {
+        templateUrl: "admin/partial.html", 
+        controller: "adminController"
     });
 });
