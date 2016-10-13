@@ -3,16 +3,18 @@
 <form class="form">
 	<div class="form-group">
 		<label for="comic">Comic File: </label>
-		<input type="file" id="comic" ng-model="data.image">
+		<div id="comic" ng-file-reader on-readed="onReaded(event, file)" read-method="readMethod"></div>
+		size: {{file.size | fileSize}}
+		<img ng-src="{{image}}">
 		<p class="help-block">Upload comic file here</p>
 	</div>
 	<div class="form-group">
 		<label for="title">Title: </label>
-		<input class="form-control" type="text" name="title" it="name" ng-model="data.name">
+		<input class="form-control" type="text" name="title" it="name" ng-model="name">
 	</div>
 	<div class="form-group">
 		<label for="comments">Comments: </label>
-		<textarea class="form-control" name="comments" id="comments" ng-model="data.comments"></textarea>
+		<textarea class="form-control" name="comments" id="comments" ng-model="comments"></textarea>
 	</div>
 	<div class="form-group">
 		<label for="chapter">Chapter: </label>

@@ -2,20 +2,22 @@ adminModule.controller("adminController", ["$scope", "$http", function($scope, $
 {
 	var self = this;
 
-	$scope.data = {
-		"image": null,
-		"name": "", 
-		"comments": "",
-		"chapter": "",
-		"tags": ""
-	};
+	$scope.image = {};
+	$scope.name = "";
+	$scope.comments = "";
+	$scope.chapter = "";
+	$scope.tags = "";
 
 	$scope.uploadComic = function()
 	{
-		// Process the tags
-		$scope.data.tags = $scope.data.tags.split(",");
+		$http.post("http://localhost:8080/comics", {
+			"name": $scope.name, 
+			"image": $scope.image,
+			"comments": $scope.comments, 
+			"chapter": $scope.chapter, 
+			"tags":  $scope.tags.split(",")
 
-		$http.post("http://localhost:8080/comics", $scope.data, {
+		}, {
 			headers: {
 				"content-type": "application/json"
 			}
@@ -36,5 +38,14 @@ adminModule.controller("adminController", ["$scope", "$http", function($scope, $
 				$scope.data.tags = "";
 			}
 		);
+	};
+
+	$scope.readMethod = "readAsDataURL";
+
+	$scope.onReaded = function(e, file)
+	{
+		$scope.image = e.target.result;
+
+		$scope.file = file;
 	};
 }]);
