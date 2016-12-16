@@ -2,7 +2,7 @@ adminModule.controller("adminController", ["$scope", "$http", function($scope, $
 {
 	var self = this;
 
-	$scope.image = {};
+	$scope.image = null;
 	$scope.name = "";
 	$scope.comments = "";
 	$scope.chapter = "";

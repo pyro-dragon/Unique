@@ -1,6 +1,6 @@
-<h1>Comic Title</h1>
+<h1>{{data.name}}</h1>
 
-<img class="comic-image img-responsive" src="images/comic.png">
+<img class="comic-image img-responsive" src="{{data.image}}">
 
 <div class="navigation-pannel">
 	<div class="first nav-button"><i class="fa fa-angle-double-left" aria-hidden="true"></i><p>First</p></div>
@@ -22,10 +22,9 @@
 		<div class="col-sm-9 col-md-10">
 			<div class="authors-notes">
 				<h2>Authers notes title</h2>
-				<div class="authers-notes-body">
-					<p>This is a random test comic and these are some random test notes. </p>
-					<p>Another paragraph of random text and stuff. Another sentance and all of that sort of jazz.</p>
-				</div>
+				<div class="date-published"><span class="strong">Date published:</span> {{data["date-published"].toLocaleString()}}</div>
+				<div class="authers-notes-body">{{data.comments}}</div>
+				<div class="tags"><a ng-repeat="tag in data.tags" href="{{tag}}">{{tag}}</a></div>
 			</div>
 		</div>
 	</div>

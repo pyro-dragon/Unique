@@ -37,3 +37,22 @@
 	padding: 1px 15px 1px 15px;
 	margin-left: -15px; /* Narrow down the gutter between the sidebar and notes */
 }
+
+.tags{
+	font-size: 8pt;
+	font-style: italic;
+}
+
+.tag a{
+	text-decoration: none;
+	color: #000000;
+}
+
+.date-published{
+	font-size: 8pt;
+	font-style: italic;
+}
+
+nav-button.previous.disabled{
+	color: grey;
+}
