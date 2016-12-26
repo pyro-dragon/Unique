@@ -9,18 +9,20 @@
 		<script src="node_modules/jquery/dist/jquery.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 		<script src="node_modules/ngFileReader/src/ngFileReader.js"></script>
-		
+		<script src="node_modules/angular-cookies/angular-cookies.js"></script>
+
 		<script src="home/js/homeModule.js"></script>
 		<script src="home/js/homeController.js"></script>
-		
+
 		<script src="cast/js/castModule.js"></script>
 		<script src="cast/js/castController.js"></script>
 		<script src="cast/js/castDirective.js"></script>
-		
+
 		<script src="archive/js/archiveModule.js"></script>
 		<script src="archive/js/archiveController.js"></script>
 
 		<script src="admin/js/adminModule.js"></script>
+		<script src="admin/js/loginController.js"></script>
 		<script src="admin/js/adminController.js"></script>
 
 		<script src="js/indexModule.js"></script>
@@ -30,11 +32,11 @@
 		<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
 		<link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
-	
+
 		<!-- Global styling -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
-	
+
 	<body ng-app="indexModule" ng-controller="indexController">
 		<h1 class="comic-title">UNIque</h1> <p class="comic-subtitle">Uni-Versity Life</p>
 		<nav class="navbar navbar-default">
@@ -48,7 +50,7 @@
 						<span class="icon-bar"></span>
 					</button>
 				</div>
-				
+
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
@@ -67,7 +69,7 @@
 			</div>
 		<!-- /.container-fluid -->
 		</nav>
-	
+
 		<div class="page-container" ng-view></div>
 
 		<footer class="footer">

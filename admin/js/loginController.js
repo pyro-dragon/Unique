@@ -1,10 +1,15 @@
-adminModule.controller("loginController", ["$scope", "$http", function($scope, $http)
+adminModule.controller("loginController", ["$scope", "$http", "$cookies", "authService", function($scope, $http, $cookies, authService)
 {
 	var self = this;
+	$scope.error = false;
+	$scope.errorMessages = [];
 
 	// The login function, activated by pressing the login button
 	$scope.login = function()
 	{
+		// Reset the error messages for a fresh go at it
+		resetErrors();
+
 		// Check that we have valid data before proceeding
 		if(!validate())
 		{
@@ -12,31 +17,8 @@ adminModule.controller("loginController", ["$scope", "$http", function($scope, $
 			return false;
 		}
 
-		// Set up the HTTP call
-		$http.post("http://localhost:8080/auth", {
-			"name": $scope.username,
-			"password": $scope.password
-		}, {
-			headers: {
-				"content-type": "application/json"
-			}
-		})
-		.then(
-
-			//Success
-			function(response)
-			{
-				$scope.success = response.data;
-				$scope.data.tags = "";
-			},
-
-			// Fail
-			function(error)
-			{
-				$scope.error = error;
-				$scope.data.tags = "";
-			}
-		);
+		// Log the user in
+		authService.login($scope.username, $scope.password, null, function(error){ $scope.error = error; });
 	};
 
 	// Return the whole of the validation result
@@ -48,17 +30,16 @@ adminModule.controller("loginController", ["$scope", "$http", function($scope, $
 	// Validate the username field
 	function validateUsername()
 	{
-		// Nullify the error
-		$scope.usernameError = undefined;
-
 		// Check the username against a number of conditions
-		if(!$scope.username || $scope.username.length)
+		if(!$scope.username || $scope.username.length <= 0)
 		{
-			$scope.usernameError = "Please enter a username!"
+			$scope.errorMessages.push("Please enter a username!");
+			$scope.error = true;
 		}
-		else if(!$scope.match(/^[a-z0-9]+$/i))
+		else if(!$scope.username.match(/^[a-z0-9 ]+$/i))
 		{
-			$scope.usernameError = "Username contains invalid characters!"
+			$scope.errorMessages.push("Username contains invalid characters!");
+			$scope.error = true;
 		}
 		else
 		{
@@ -68,18 +49,16 @@ adminModule.controller("loginController", ["$scope", "$http", function($scope, $
 
 		// One test failed!
 		return false;
-	};
+	}
 
 	// Validate the password field
 	function validatePassword()
 	{
-			// Nullify the error
-			$scope.passwordError = undefined;
-
 			// Check the password to see if one got entered
-			if(!$scope.password || $scope.password.length)
+			if(!$scope.password || $scope.password.length <= 0)
 			{
-				$scope.passwordError = "Please enter a password!"
+				$scope.errorMessages.push("Please enter a password!");
+				$scope.error = true;
 			}
 			else
 			{
@@ -91,4 +70,10 @@ adminModule.controller("loginController", ["$scope", "$http", function($scope, $
 			return false;
 	}
 
+	// Reset the error messages
+	function resetErrors()
+	{
+		$scope.errorMessages = [];
+		$scope.error = false;
+	}
 }]);

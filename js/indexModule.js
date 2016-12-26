@@ -1,2 +1,15 @@
-var indexModule = angular.module("indexModule", ["ngRoute", "angularCSS", "ngFileReader", "homeModule", "castModule", "archiveModule", "adminModule"]);
+var indexModule = angular.module("indexModule", [
+  // Standard Angular Modules
+  "ngRoute",
+  "ngFileReader",
+  "ngCookies",
 
+  // Custom Angular Modules
+  "angularCSS",
+
+  // Application modules
+  "homeModule",
+  "castModule",
+  "archiveModule",
+  "adminModule"
+]);
