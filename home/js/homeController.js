@@ -1,4 +1,4 @@
-homeModule.controller("homeController", ["$scope", "$http", function($scope, $http) 
+homeModule.controller("homeController", ["$scope", "$http", function($scope, $http)
 {
 	getLatestComic = function()
 	{
@@ -13,8 +13,8 @@ homeModule.controller("homeController", ["$scope", "$http", function($scope, $ht
 			function(response)
 			{
 				$scope.data = response.data;
-				$scope.data["date-published"] = new Date($scope.data["date-published"]*1000)
-			}, 
+				$scope.data["date-published"] = new Date($scope.data["date-published"]*1000);
+			},
 
 			// Fail
 			function(error)
