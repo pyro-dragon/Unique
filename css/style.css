@@ -95,3 +95,7 @@ footer a:visited{
 	text-decoration: none;
 	color: inherit;
 }
+
+.strong {
+	font-weight: bold;
+}
