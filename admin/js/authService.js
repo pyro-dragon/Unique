@@ -1,6 +1,17 @@
-adminModule.service("authService", ["$http", "$cookies", function($http, $cookies)
+adminModule.service("authService", ["$http", "$cookies", "$location", function($http, $cookies, $location)
 {
   var self = this;
+
+  // Check to see if a user is currently logged in
+  this.userLoggedIn = function()
+  {
+    if($cookies.get("authToken"))
+    {
+      return true;
+    }
+
+    return false;
+  };
 
   // Submit a login request
   this.login = function(username, password, pass, fail)
@@ -39,5 +50,8 @@ adminModule.service("authService", ["$http", "$cookies", function($http, $cookie
   {
     // Nullify the cookie
     $cookies.remove("authToken");
+
+    // Go back to the home page
+    $location.url("/");
   };
 }]);

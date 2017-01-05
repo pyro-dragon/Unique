@@ -1,4 +1,4 @@
-adminModule.controller("loginController", ["$scope", "$http", "$cookies", "authService", function($scope, $http, $cookies, authService)
+adminModule.controller("loginController", ["$scope", "$http", "$cookies", "$location", "authService", function($scope, $http, $cookies, $location, authService)
 {
 	var self = this;
 	$scope.error = false;
@@ -18,7 +18,7 @@ adminModule.controller("loginController", ["$scope", "$http", "$cookies", "authS
 		}
 
 		// Log the user in
-		authService.login($scope.username, $scope.password, null, function(error){ $scope.error = error; });
+		authService.login($scope.username, $scope.password, function(){ $location.url("admin"); }, function(error){ $scope.error = error; });
 	};
 
 	// Return the whole of the validation result
