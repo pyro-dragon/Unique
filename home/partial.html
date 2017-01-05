@@ -9,6 +9,8 @@
 		<div class="next nav-button"><i class="fa fa-arrow-right" aria-hidden="true"></i><p>Next</p></div>
 		<div class="current nav-button"><i class="fa fa-angle-double-right" aria-hidden="true"></i><p>Current</p></div>
 	</div>
+	<div ng-if="authService.userLoggedIn()">
+		<button class="btn btn-danger" ng-click="">
 </div>
 
 <h1 ng-hide="data">No comics here yet!</h1>
@@ -25,7 +27,7 @@
 			</div>
 		</div>
 		<div class="col-sm-9 col-md-10">
-			<div ng-show="data" class="authors-notes">
+			<div ng-if="data" class="authors-notes">
 				<h2>Authers notes title</h2>
 				<div class="date-published"><span class="strong">Date published:</span> {{data["date-published"].toLocaleString()}}</div>
 				<div class="authers-notes-body">{{data.comments}}</div>
