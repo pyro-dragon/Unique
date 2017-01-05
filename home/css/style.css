@@ -1,3 +1,5 @@
+/* home CSS */
+
 .comic-image{
 	display: inline-block !important;
 }
@@ -10,9 +12,7 @@
 
 /* Push the links sidebar to the left */
 .comic-footer-sidebar{
-	float: left;
-	width: 18%;
-	background-color: #ffffff;
+	background-color: #efefef;
 	border-radius: 15px;
 	padding: 1px 15px 1px 15px;
 }
@@ -22,10 +22,20 @@
 	padding: 0px;
 }
 
+.comic-footer-sidebar li{
+	padding: 15px 0px 0px 0px;
+	text-align: center;
+}
+
+.comic-footer-sidebar img{
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Make a space to the left for the links sidebar */
 .authors-notes{
-	margin-left: 20%;
-	background-color: #ffffff;
+	background-color: #efefef;
 	border-radius: 15px;
 	padding: 1px 15px 1px 15px;
+	margin-left: -15px; /* Narrow down the gutter between the sidebar and notes */
 }

@@ -7,10 +7,12 @@ indexModule.config(function($routeProvider) {
     })
     .when("/cast", {
         templateUrl: "cast/partial.html", 
-        controller: "castController"
+        controller: "castController", 
+        css: "cast/css/style.css"
     })
     .when("/archive", {
         templateUrl: "archive/partial.html", 
-        controller: "archiveController"
+        controller: "archiveController", 
+        css: "archive/css/style.css"
     });
 });

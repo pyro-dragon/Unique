@@ -1,0 +1,37 @@
+/* archive CSS */
+
+.chapter-heading{
+	text-align: left;
+}
+
+.chapter-image{
+	max-height: 100px;
+	max-width: 100px;
+}
+
+.chapter-date{
+	text-align: right;
+}
+
+.episode-list{
+	text-align: left;
+}
+
+.episode-image{
+	text-align: center;
+}
+
+.episode-title{
+
+}
+
+.episode-date{
+	text-align: right;
+}
+
+.row.episode-container{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
