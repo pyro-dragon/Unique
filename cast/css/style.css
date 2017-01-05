@@ -1,28 +1,33 @@
-.skill-card {
-	width: 220px;
-	height: 100px;
+/* Cast CSS */
+
+.cast-list{
+	text-align: left;
+	margin-left: 4%;
+	margin-right: 4%
+}
+
+.cast-container{
+	background-color: #efefef;
 	border-radius: 15px;
-	background-color: #ffffff;
-	padding: 5px 10px;
-	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
+	padding:15px;
 }
 
-.skill-card img {
+.cast-line-right{
+	text-align: right;
+}
+
+.cast-property-name{
+	text-align: right;
+	padding-right:2px;
+	font-weight: bold;
+}
+
+.cast-property-value{
+	text-align: left;
+	padding-left:2px;
+}
+
+.cast-portrait img{
 	width: 200px;
-	position: relative;
-	top:-100%;
-}
-
-.skill-card-image{
-	height: 70px;
-	overflow: hidden;
-}
-
-.skill-card-caption {
-	height: 30px;
-}
-
-.skill-grid {
-	width: 100%;
 }
