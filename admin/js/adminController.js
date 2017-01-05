@@ -11,10 +11,10 @@ adminModule.controller("adminController", ["$scope", "$http", function($scope, $
 	$scope.uploadComic = function()
 	{
 		$http.post("http://localhost:8080/comics", {
-			"name": $scope.name, 
+			"name": $scope.name,
 			"image": $scope.image,
-			"comments": $scope.comments, 
-			"chapter": $scope.chapter, 
+			"comments": $scope.comments,
+			"chapter": $scope.chapter,
 			"tags":  $scope.tags.split(",")
 
 		}, {
@@ -27,15 +27,13 @@ adminModule.controller("adminController", ["$scope", "$http", function($scope, $
 			//Success
 			function(response)
 			{
-				$scope.success = response.data;
-				$scope.data.tags = "";
-			}, 
+				$scope.success = true;
+			},
 
 			// Fail
 			function(error)
 			{
 				$scope.error = error;
-				$scope.data.tags = "";
 			}
 		);
 	};
