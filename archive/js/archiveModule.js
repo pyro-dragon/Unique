@@ -1,1 +1,1 @@
-var contactModule = angular.module("contactModule", []);
+var archiveModule = angular.module("archiveModule", []);

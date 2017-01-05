@@ -1,3 +1,3 @@
-contactModule.controller("contactController", ["$scope", function($scope)
+archiveModule.controller("archiveController", ["$scope", function($scope)
 {
 }]);

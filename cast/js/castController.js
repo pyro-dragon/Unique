@@ -1,3 +1,3 @@
-cvModule.controller("cvController", ["$scope", function($scope)
+castModule.controller("castController", ["$scope", function($scope)
 {
 }]);

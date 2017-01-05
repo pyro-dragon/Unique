@@ -4,21 +4,13 @@ indexModule.config(function($routeProvider) {
         templateUrl: "home/partial.html", 
         controller: "homeController"
     })
-    .when("/home", {
-        templateUrl: "home/partial.html", 
-        controller: "homeController"
+    .when("/cast", {
+        templateUrl: "cast/partial.html", 
+        controller: "castController",
+        css: "cast/css/style.css"
     })
-    .when("/cv", {
-        templateUrl: "cv/partial.html", 
-        controller: "cvController",
-        css: "cv/css/style.css"
-    })
-    .when("/projects", {
-        templateUrl: "projects/partial.html", 
-        controller: "projectsController"
-    })
-    .when("/contact", {
-        templateUrl: "contact/partial.htm", 
-        controller: "contactController"
+    .when("/archive", {
+        templateUrl: "archive/partial.html", 
+        controller: "archiveController"
     });
 });

@@ -1,8 +1,8 @@
-cvModule.directive("skillCard", function()
+castModule.directive("skillCard", function()
 {
 	return{
 		restrict: "E",
-		templateUrl: "cv/skillCardTemplate.html", 
+		templateUrl: "cast/skillCardTemplate.html", 
 		scope: {
 			name: "@skillName", 
 			image: "@img", 
