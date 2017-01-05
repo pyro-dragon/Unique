@@ -1,0 +1,31 @@
+.comic-image{
+	display: inline-block !important;
+}
+
+/* align the comic footer text to the left */
+.comic-footer{
+	text-align: left;
+	margin: 10px;
+}
+
+/* Push the links sidebar to the left */
+.comic-footer-sidebar{
+	float: left;
+	width: 18%;
+	background-color: #ffffff;
+	border-radius: 15px;
+	padding: 1px 15px 1px 15px;
+}
+
+.comic-footer-sidebar ul{
+	list-style: none;
+	padding: 0px;
+}
+
+/* Make a space to the left for the links sidebar */
+.authors-notes{
+	margin-left: 20%;
+	background-color: #ffffff;
+	border-radius: 15px;
+	padding: 1px 15px 1px 15px;
+}
