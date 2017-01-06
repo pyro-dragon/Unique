@@ -9,8 +9,19 @@
 		<div class="next nav-button"><i class="fa fa-arrow-right" aria-hidden="true"></i><p>Next</p></div>
 		<div class="current nav-button"><i class="fa fa-angle-double-right" aria-hidden="true"></i><p>Current</p></div>
 	</div>
-	<div ng-if="authService.userLoggedIn()">
-		<button class="btn btn-danger" ng-click="">
+	<div id="delete-block" ng-if="authService.isUserAuthenticated()">
+		<div class="deleteComponent in" data-toggle="collapse" href=".deleteComponent">
+			<button class="btn btn-danger">Delete Page</button>
+		</div>
+
+		<div class="collapse deleteComponent">
+			<p>Are you sure you want to delete this page?</p>
+			<div class="row">
+				<button class="btn btn-danger" data-toggle="collapse" href=".deleteComponent" ng-click="deleteComicPage()">Delete</button>
+				<button class="btn btn-default" data-toggle="collapse" href=".deleteComponent">Cancel</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <h1 ng-hide="data">No comics here yet!</h1>

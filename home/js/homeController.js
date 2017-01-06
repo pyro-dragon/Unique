@@ -1,4 +1,4 @@
-homeModule.controller("homeController", ["$scope", "$http", function($scope, $http)
+homeModule.controller("homeController", ["$scope", "$http", "comicService", function($scope, $http, comicService)
 {
 	getLatestComic = function()
 	{
@@ -12,8 +12,12 @@ homeModule.controller("homeController", ["$scope", "$http", function($scope, $ht
 			//Success
 			function(response)
 			{
-				$scope.data = response.data;
-				$scope.data["date-published"] = new Date($scope.data["date-published"]*1000);
+				// Check to see if we got a comic down from the server
+				if(response.data)
+				{
+					$scope.data = response.data;
+					$scope.data["date-published"] = new Date($scope.data["date-published"]*1000);
+				}
 			},
 
 			// Fail
@@ -22,6 +26,12 @@ homeModule.controller("homeController", ["$scope", "$http", function($scope, $ht
 				$scope.error = error;
 			}
 		);
+	};
+
+	// Delete the currently visible comic page
+	$scope.deleteComicPage = function()
+	{
+		comicService.deleteComicPage($scope.data._id, $scope.data._rev);
 	};
 
 	getLatestComic();

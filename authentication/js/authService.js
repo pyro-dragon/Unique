@@ -1,16 +1,24 @@
-adminModule.service("authService", ["$http", "$cookies", "$location", function($http, $cookies, $location)
+authModule.service("authService", ["$http", "$cookies", "$location", "jwtHelper", function($http, $cookies, $location, jwtHelper)
 {
   var self = this;
 
-  // Check to see if a user is currently logged in
-  this.userLoggedIn = function()
+  // Check to see if a user is currently logged in and the key is valid
+  this.isUserAuthenticated = function()
   {
-    if($cookies.get("authToken"))
+    // Check the auth token exists, then check that it has not yet expired
+    if($cookies.get("authToken") &&
+    Math.floor(Date.now() / 1000) <$cookies.get("authTokenExp"))
     {
       return true;
     }
 
     return false;
+  };
+
+  // Get the autentication key
+  this.getAuthentication = function()
+  {
+    return $cookies.get("authToken");
   };
 
   // Submit a login request
@@ -24,7 +32,11 @@ adminModule.service("authService", ["$http", "$cookies", "$location", function($
 			//Success
 			function(response)
 			{
+        // Save the JWT auth token
 				$cookies.put("authToken", response.data);
+
+        // Save the JWT expire date
+  			$cookies.put("authTokenExp", jwtHelper.decodeToken(response.data).exp);
 
         // Execute optional success function
         if(typeof pass === "function")

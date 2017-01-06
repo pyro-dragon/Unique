@@ -6,8 +6,11 @@ var indexModule = angular.module("indexModule", [
 
   // Custom Angular Modules
   "angularCSS",
+  "angular-jwt",
 
   // Application modules
+  "authModule",
+  "comicModule",
   "homeModule",
   "castModule",
   "archiveModule",

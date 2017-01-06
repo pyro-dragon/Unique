@@ -1,4 +1,4 @@
-adminModule.controller("adminController", ["$scope", "$http", function($scope, $http)
+adminModule.controller("adminController", ["$scope", "$http", "authService", function($scope, $http, authService)
 {
 	var self = this;
 
@@ -10,7 +10,7 @@ adminModule.controller("adminController", ["$scope", "$http", function($scope, $
 
 	$scope.uploadComic = function()
 	{
-		$http.post("http://localhost:8080/comics", {
+		$http.post("http://localhost:8080/comic", {
 			"name": $scope.name,
 			"image": $scope.image,
 			"comments": $scope.comments,
@@ -19,7 +19,8 @@ adminModule.controller("adminController", ["$scope", "$http", function($scope, $
 
 		}, {
 			headers: {
-				"content-type": "application/json"
+				"content-type": "application/json",
+				"x-access-token": authService.getAuthentication()
 			}
 		})
 		.then(
