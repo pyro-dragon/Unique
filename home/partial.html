@@ -10,7 +10,7 @@
 		<div class="current nav-button"><i class="fa fa-angle-double-right" aria-hidden="true"></i><p>Current</p></div>
 	</div>
 	<div id="admin-block" ng-if="authService.isUserAuthenticated()">
-		<a href="#/edit?test=8" class="btn btn-primary">Edit Page</a>
+		<a href="#/edit" class="btn btn-primary">Edit Page</a>
 		<div class="deleteComponent in" data-toggle="collapse" href=".deleteComponent">
 			<button class="btn btn-danger">Delete Page</button>
 		</div>
@@ -25,7 +25,7 @@
 	</div>
 </div>
 
-<h1 ng-hide="data">No comics here yet!</h1>
+<h1 ng-hide="comicService.currentPage">No comics here yet!</h1>
 
 <div class="comic-footer">
 	<div class="row">
@@ -39,11 +39,11 @@
 			</div>
 		</div>
 		<div class="col-sm-9 col-md-10">
-			<div ng-if="data" class="authors-notes">
+			<div ng-if="comicService.currentPage" class="authors-notes">
 				<h2>Authers notes title</h2>
 				<div class="date-published"><span class="strong">Date published:</span> {{comicService.currentPage["date-published"].toLocaleString()}}</div>
 				<div class="authers-notes-body">{{comicService.currentPage.comments}}</div>
-				<div class="tags"><a ng-repeat="tag in comicService.currentPage.tags" href="{{tag}}">{{tag}}</a></div>
+				<div class="tags"><a ng-repeat="tag in comicService.currentPage.tags" href="{{tag}}">{{tag}} </a></div>
 			</div>
 		</div>
 	</div>

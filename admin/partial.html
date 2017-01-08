@@ -30,7 +30,9 @@
 		<select class="form-control" name="chapter" disabled id="chapter"></select>
 	<div class="form-group">
 		<label for="tags">Tags: </label>
-		<input class="form-control" type="text" name="tags" id="tags" ng-model="tags">
+		<tags-input class="form-control" id="tags" name="tags" ng-model="tags">
+      <!--auto-complete source="loadTags($query)"></auto-complete-->
+    </tags-input>
 	</div>
 
 	<button ng-click="uploadComic()">Upload!</button>

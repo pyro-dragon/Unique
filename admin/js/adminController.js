@@ -6,7 +6,9 @@ adminModule.controller("adminController", ["$scope", "$http", "$route", "authSer
 	$scope.name = "";
 	$scope.comments = "";
 	$scope.chapter = "";
-	$scope.tags = "";
+	$scope.tags = [];
+	$scope._id = null;
+	$scope._rev = null;
 
 	// Initialise the admin page
 	this.initialise = function()
@@ -17,18 +19,30 @@ adminModule.controller("adminController", ["$scope", "$http", "$route", "authSer
 			$scope.name = comicService.currentPage.name;
 			$scope.comments = comicService.currentPage.comments;
 			$scope.chapter = comicService.currentPage.chapter;
-			$scope.tags = comicService.currentPage.tags;
+			angular.forEach(comicService.currentPage.tags, function(value, key)
+			{
+				$scope.tags.push({text: value});
+			});
+			$scope._id = comicService.currentPage._id;
+			$scope._rev = comicService.currentPage._rev;
 		}
 	};
 
 	$scope.uploadComic = function()
 	{
+		var flatTags = [];
+		angular.forEach($scope.tags, function(value, key)
+		{
+			flatTags.push(value.text);
+		});
 		$http.post("http://localhost:8080/comic", {
+			"_id": $scope._id,
+			"_rev": $scope._rev,
 			"name": $scope.name,
 			"image": $scope.image,
 			"comments": $scope.comments,
 			"chapter": $scope.chapter,
-			"tags":  $scope.tags.split(",")
+			"tags":  flatTags
 
 		}, {
 			headers: {

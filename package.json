@@ -22,9 +22,12 @@
     "angular-css": "^1.0.8",
     "angular-jwt": "^0.1.8",
     "angular-route": "^1.5.8",
+    "angular-ui-bootstrap": "^2.4.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.6.3",
+    "install": "^0.8.4",
     "jquery": "^3.1.1",
+    "ng-tags-input": "^3.1.1",
     "ngFileReader": "0.0.8"
   }
 }
