@@ -1,7 +1,7 @@
-<div ng-show="data">
-	<h1>{{data.name}}</h1>
+<div ng-show="comicService.currentPage">
+	<h1>{{comicService.currentPage.name}}</h1>
 
-	<img class="comic-image img-responsive" src="{{data.image}}">
+	<img class="comic-image img-responsive" src="{{comicService.currentPage.image}}">
 
 	<div class="navigation-pannel">
 		<div class="first nav-button"><i class="fa fa-angle-double-left" aria-hidden="true"></i><p>First</p></div>
@@ -9,7 +9,8 @@
 		<div class="next nav-button"><i class="fa fa-arrow-right" aria-hidden="true"></i><p>Next</p></div>
 		<div class="current nav-button"><i class="fa fa-angle-double-right" aria-hidden="true"></i><p>Current</p></div>
 	</div>
-	<div id="delete-block" ng-if="authService.isUserAuthenticated()">
+	<div id="admin-block" ng-if="authService.isUserAuthenticated()">
+		<a href="#/edit?test=8" class="btn btn-primary">Edit Page</a>
 		<div class="deleteComponent in" data-toggle="collapse" href=".deleteComponent">
 			<button class="btn btn-danger">Delete Page</button>
 		</div>
@@ -40,9 +41,9 @@
 		<div class="col-sm-9 col-md-10">
 			<div ng-if="data" class="authors-notes">
 				<h2>Authers notes title</h2>
-				<div class="date-published"><span class="strong">Date published:</span> {{data["date-published"].toLocaleString()}}</div>
-				<div class="authers-notes-body">{{data.comments}}</div>
-				<div class="tags"><a ng-repeat="tag in data.tags" href="{{tag}}">{{tag}}</a></div>
+				<div class="date-published"><span class="strong">Date published:</span> {{comicService.currentPage["date-published"].toLocaleString()}}</div>
+				<div class="authers-notes-body">{{comicService.currentPage.comments}}</div>
+				<div class="tags"><a ng-repeat="tag in comicService.currentPage.tags" href="{{tag}}">{{tag}}</a></div>
 			</div>
 		</div>
 	</div>

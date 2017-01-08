@@ -45,11 +45,33 @@ comicModule.service("comicService", ["$http", "authService", function($http, aut
 
   this.getLatestComic = function()
   {
-
+    $http.get("http://localhost:8080/comic/latest", {
+			headers: {
+				"content-type": "application/json"
+			}
+		})
+		.then(
+			//Success
+			function(response)
+			{
+				// Check to see if we got a comic down from the server
+				if(response.data)
+				{
+					self.currentPage = response.data;
+				}
+			},
+			// Fail
+			function(error)
+			{
+				$scope.error = error;
+			}
+		);
   };
 
   this.getComicPage = function()
   {
 
   };
+
+  this.getLatestComic();
 }]);

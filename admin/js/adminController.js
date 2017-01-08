@@ -1,4 +1,4 @@
-adminModule.controller("adminController", ["$scope", "$http", "authService", function($scope, $http, authService)
+adminModule.controller("adminController", ["$scope", "$http", "$route", "authService", "comicService", function($scope, $http, $route, authService, comicService)
 {
 	var self = this;
 
@@ -7,6 +7,19 @@ adminModule.controller("adminController", ["$scope", "$http", "authService", fun
 	$scope.comments = "";
 	$scope.chapter = "";
 	$scope.tags = "";
+
+	// Initialise the admin page
+	this.initialise = function()
+	{
+		if($route.current.$$route.edit)
+		{
+			$scope.image = comicService.currentPage.image;
+			$scope.name = comicService.currentPage.name;
+			$scope.comments = comicService.currentPage.comments;
+			$scope.chapter = comicService.currentPage.chapter;
+			$scope.tags = comicService.currentPage.tags;
+		}
+	};
 
 	$scope.uploadComic = function()
 	{
@@ -47,4 +60,6 @@ adminModule.controller("adminController", ["$scope", "$http", "authService", fun
 
 		$scope.file = file;
 	};
+
+	this.initialise();
 }]);

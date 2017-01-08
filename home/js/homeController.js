@@ -1,8 +1,10 @@
-homeModule.controller("homeController", ["$scope", "$http", "comicService", function($scope, $http, comicService)
+homeModule.controller("homeController", ["$scope", "$http", "$location", "comicService", function($scope, $http, $location, comicService)
 {
+	$scope.comicService = comicService;
+
 	getLatestComic = function()
 	{
-		$http.get("http://localhost:8080/comics/latest", {
+		$http.get("http://localhost:8080/comic/latest", {
 			headers: {
 				"content-type": "application/json"
 			}
@@ -34,5 +36,5 @@ homeModule.controller("homeController", ["$scope", "$http", "comicService", func
 		comicService.deleteComicPage($scope.data._id, $scope.data._rev);
 	};
 
-	getLatestComic();
+	//getLatestComic();
 }]);
