@@ -38,5 +38,7 @@
 	<button ng-click="uploadComic()">Upload!</button>
 </form>
 
+<p ng-if="comicService.waiting">Uploading data...</p>
+
 <p ng-show="error" class="bg-danger">{{error}}</p>
 <p ng-show="success" class="bg-success">{{success}}</p>

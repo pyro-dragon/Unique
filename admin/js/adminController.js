@@ -1,6 +1,7 @@
-adminModule.controller("adminController", ["$scope", "$http", "$route", "authService", "comicService", function($scope, $http, $route, authService, comicService)
+adminModule.controller("adminController", ["$scope", "$http", "$route", "$location", "authService", "comicService", function($scope, $http, $route, $location, authService, comicService)
 {
 	var self = this;
+	$scope.comicService = comicService;
 
 	$scope.image = null;
 	$scope.name = "";
@@ -13,7 +14,7 @@ adminModule.controller("adminController", ["$scope", "$http", "$route", "authSer
 	// Initialise the admin page
 	this.initialise = function()
 	{
-		if($route.current.$$route.edit)
+		if($route.current.$$route.edit || $route.current.$$route.originalPath == "/edit")
 		{
 			$scope.image = comicService.currentPage.image;
 			$scope.name = comicService.currentPage.name;
@@ -28,6 +29,7 @@ adminModule.controller("adminController", ["$scope", "$http", "$route", "authSer
 		}
 	};
 
+	// Upload the new comic changes
 	$scope.uploadComic = function()
 	{
 		var flatTags = [];
@@ -35,7 +37,11 @@ adminModule.controller("adminController", ["$scope", "$http", "$route", "authSer
 		{
 			flatTags.push(value.text);
 		});
-		$http.post("http://localhost:8080/comic", {
+
+		$scope.success = null;
+		$scope.error = null;
+
+		comicService.uploadComicPage({
 			"_id": $scope._id,
 			"_rev": $scope._rev,
 			"name": $scope.name,
@@ -43,27 +49,16 @@ adminModule.controller("adminController", ["$scope", "$http", "$route", "authSer
 			"comments": $scope.comments,
 			"chapter": $scope.chapter,
 			"tags":  flatTags
-
-		}, {
-			headers: {
-				"content-type": "application/json",
-				"x-access-token": authService.getAuthentication()
-			}
-		})
-		.then(
-
-			//Success
-			function(response)
-			{
-				$scope.success = true;
-			},
-
-			// Fail
-			function(error)
-			{
-				$scope.error = error;
-			}
-		);
+		},
+		function(response)
+		{
+			$scope.success = true;
+			$location.url("/");
+		},
+		function(error)
+		{
+			$scope.error = error;
+		});
 	};
 
 	$scope.readMethod = "readAsDataURL";

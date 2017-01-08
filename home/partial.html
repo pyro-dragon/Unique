@@ -1,4 +1,4 @@
-<div ng-show="comicService.currentPage">
+<div ng-show="comicService.currentPage && !comicService.waiting">
 	<h1>{{comicService.currentPage.name}}</h1>
 
 	<img class="comic-image img-responsive" src="{{comicService.currentPage.image}}">
@@ -25,7 +25,8 @@
 	</div>
 </div>
 
-<h1 ng-hide="comicService.currentPage">No comics here yet!</h1>
+<h1 ng-hide="comicService.currentPage || comicService.waiting">No comics here yet!</h1>
+<h1 ng-show="comicService.waiting">Loading...</h1>
 
 <div class="comic-footer">
 	<div class="row">
@@ -39,7 +40,7 @@
 			</div>
 		</div>
 		<div class="col-sm-9 col-md-10">
-			<div ng-if="comicService.currentPage" class="authors-notes">
+			<div ng-if="comicService.currentPage && !comicService.waiting" class="authors-notes">
 				<h2>Authers notes title</h2>
 				<div class="date-published"><span class="strong">Date published:</span> {{comicService.currentPage["date-published"].toLocaleString()}}</div>
 				<div class="authers-notes-body">{{comicService.currentPage.comments}}</div>
