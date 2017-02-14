@@ -30,8 +30,8 @@ indexModule.config(function($routeProvider)
         css: "home/css/style.css"
     })
     .when("/cast", {
-        templateUrl: "cast/partial.html", 
-        controller: "castController", 
+        templateUrl: "cast/partial.html",
+        controller: "castController",
         css: "cast/css/style.css"
     })
     .when("/archive", {
@@ -43,6 +43,12 @@ indexModule.config(function($routeProvider)
         templateUrl: "admin/partial.html",
         controller: "adminController",
         authorization: true
+    })
+    .when("/edit", {
+        templateUrl: "admin/partial.html",
+        controller: "adminController",
+        authorization: true,
+        edit: true
     })
     .when("/login", {
         templateUrl: "admin/login.html",

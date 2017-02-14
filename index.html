@@ -10,6 +10,18 @@
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 		<script src="node_modules/ngFileReader/src/ngFileReader.js"></script>
 		<script src="node_modules/angular-cookies/angular-cookies.js"></script>
+		<script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
+		<script src="node_modules/ng-tags-input/build/ng-tags-input.js"></script>
+		<link rel="stylesheet" type="text/css" href="node_modules/ng-tags-input/build/ng-tags-input.css">
+
+		<!-- Do I need this? -->
+		<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+
+		<script src="authentication/js/authModule.js"></script>
+		<script src="authentication/js/authService.js"></script>
+
+		<script src="comic/js/comicModule.js"></script>
+		<script src="comic/js/comicService.js"></script>
 
 		<script src="home/js/homeModule.js"></script>
 		<script src="home/js/homeController.js"></script>
@@ -22,7 +34,6 @@
 		<script src="archive/js/archiveController.js"></script>
 
 		<script src="admin/js/adminModule.js"></script>
-		<script src="admin/js/authService.js"></script>
 		<script src="admin/js/loginController.js"></script>
 		<script src="admin/js/adminController.js"></script>
 
@@ -64,7 +75,7 @@
 						<li>
 							<a href="#/archive">Archive</a>
 						</li>
-						<li class="dropdown" ng-if="authService.userLoggedIn()">
+						<li class="dropdown" ng-if="authService.isUserAuthenticated()">
 		          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"></i> <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
 		            <li><a href="#/admin">Add Comic</a></li>

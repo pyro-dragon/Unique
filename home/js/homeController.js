@@ -1,8 +1,10 @@
-homeModule.controller("homeController", ["$scope", "$http", function($scope, $http)
+homeModule.controller("homeController", ["$scope", "$http", "$location", "comicService", function($scope, $http, $location, comicService)
 {
+	$scope.comicService = comicService;
+
 	getLatestComic = function()
 	{
-		$http.get("http://localhost:8080/comics/latest", {
+		$http.get("http://localhost:8080/comic/latest", {
 			headers: {
 				"content-type": "application/json"
 			}
@@ -12,8 +14,12 @@ homeModule.controller("homeController", ["$scope", "$http", function($scope, $ht
 			//Success
 			function(response)
 			{
-				$scope.data = response.data;
-				$scope.data["date-published"] = new Date($scope.data["date-published"]*1000);
+				// Check to see if we got a comic down from the server
+				if(response.data)
+				{
+					$scope.data = response.data;
+					$scope.data["date-published"] = new Date($scope.data["date-published"]*1000);
+				}
 			},
 
 			// Fail
@@ -24,5 +30,11 @@ homeModule.controller("homeController", ["$scope", "$http", function($scope, $ht
 		);
 	};
 
-	getLatestComic();
+	// Delete the currently visible comic page
+	$scope.deleteComicPage = function()
+	{
+		comicService.deleteComicPage($scope.data._id, $scope.data._rev);
+	};
+
+	//getLatestComic();
 }]);
