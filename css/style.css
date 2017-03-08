@@ -99,3 +99,7 @@ footer a:visited{
 .strong {
 	font-weight: bold;
 }
+
+.pseudo-button{
+	cursor: pointer;
+}

@@ -1,31 +1,25 @@
 homeModule.controller("homeController", ["$scope", "$http", "$location", "comicService", function($scope, $http, $location, comicService)
 {
-	$scope.comicService = comicService;
+	$scope.currentPage = {};
 
-	getLatestComic = function()
+	$scope.getLatestComic = function()
 	{
-		$http.get("http://localhost:8080/comic/latest", {
-			headers: {
-				"content-type": "application/json"
-			}
-		})
-		.then(
-
-			//Success
+		comicService.getLatestComic(
+			// Success
 			function(response)
 			{
-				// Check to see if we got a comic down from the server
 				if(response.data)
 				{
-					$scope.data = response.data;
-					$scope.data["date-published"] = new Date($scope.data["date-published"]*1000);
+					$scope.currentPage = response.data;
 				}
 			},
-
 			// Fail
 			function(error)
 			{
-				$scope.error = error;
+				if(error.data)
+				{
+					$scope.error = error.data;
+				}
 			}
 		);
 	};
@@ -36,5 +30,35 @@ homeModule.controller("homeController", ["$scope", "$http", "$location", "comicS
 		comicService.deleteComicPage($scope.data._id, $scope.data._rev);
 	};
 
-	//getLatestComic();
+	//-----------
+	// Navigation
+	//-----------
+
+	// Go to the first comic
+	$scope.goToFirst = function()
+	{
+		comicService.getFirstComic();
+	};
+
+	// Go to the previous comic
+	$scope.gotToPrev = function()
+	{
+
+	};
+
+	// Go to the next comic
+	$scope.goToNext = function()
+	{
+
+	};
+
+	// Go to the latest comic
+	$scope.goToLatest = function()
+	{
+		// Just get the latest
+		$scope.getLatestComic();
+	};
+
+	// Initial function
+	$scope.getLatestComic();
 }]);
