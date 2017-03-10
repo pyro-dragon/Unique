@@ -2,26 +2,27 @@ homeModule.controller("homeController", ["$scope", "$http", "$location", "comicS
 {
 	$scope.currentPage = {};
 
+	// A function to set a successfully retrived comic page as the curret page
+	function applyToCurrentPage(response)
+	{
+		if(response.data)
+		{
+			$scope.currentPage = response.data;
+		}
+	};
+
+	// A function to get the error out if something went wrong retriving a comic page
+	function getError(response)
+	{
+		if(response.data)
+		{
+			$scope.error = response.data;
+		}
+	}
+
 	$scope.getLatestComic = function()
 	{
-		comicService.getLatestComic(
-			// Success
-			function(response)
-			{
-				if(response.data)
-				{
-					$scope.currentPage = response.data;
-				}
-			},
-			// Fail
-			function(error)
-			{
-				if(error.data)
-				{
-					$scope.error = error.data;
-				}
-			}
-		);
+		comicService.getLatestComic(applyToCurrentPage, getError);
 	};
 
 	// Delete the currently visible comic page
@@ -37,19 +38,19 @@ homeModule.controller("homeController", ["$scope", "$http", "$location", "comicS
 	// Go to the first comic
 	$scope.goToFirst = function()
 	{
-		comicService.getFirstComic();
+		comicService.getFirstComic(applyToCurrentPage, getError);
 	};
 
 	// Go to the previous comic
 	$scope.gotToPrev = function()
 	{
-
+		comicService.getComicPage($scope.currentPage.previous, applyToCurrentPage, getError);
 	};
 
 	// Go to the next comic
 	$scope.goToNext = function()
 	{
-
+		comicService.getComicPage($scope.currentPage.next, applyToCurrentPage, getError);
 	};
 
 	// Go to the latest comic

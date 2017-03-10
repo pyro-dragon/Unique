@@ -6,7 +6,7 @@
 	<div class="navigation-pannel">
 		<div class="first nav-button pseudo-button" ng-click="goToFirst()"><i class="fa fa-angle-double-left" aria-hidden="true"></i><p>First</p></div>
 		<div class="previous nav-button pseudo-button" ng-click="gotToPrev()" ng-if="currentPage.previous"><i class="fa fa-arrow-left" aria-hidden="true"></i><p>Previous</p></div>
-		<div class="next nav-button pseudo-button" ng-click="gotToNext()" ng-if="currentPage.next"><i class="fa fa-arrow-right" aria-hidden="true"></i><p>Next</p></div>
+		<div class="next nav-button pseudo-button" ng-click="goToNext()" ng-if="currentPage.next"><i class="fa fa-arrow-right" aria-hidden="true"></i><p>Next</p></div>
 		<div class="current nav-button pseudo-button" ng-click="goToLatest()"><i class="fa fa-angle-double-right" aria-hidden="true"></i><p>Current</p></div>
 	</div>
 	<div id="admin-block" ng-if="authService.isUserAuthenticated()">

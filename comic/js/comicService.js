@@ -52,6 +52,7 @@ comicModule.service("comicService", ["$http", "authService", function($http, aut
 		.then(standardResponse(success), standardResponse(fail));
 	};
 
+	// TODO: Add a body to this function
 	this.editComicPage = function(comicPageID, comicPageData)
 	{
 
@@ -81,8 +82,15 @@ comicModule.service("comicService", ["$http", "authService", function($http, aut
 		.then(standardResponse(success), standardResponse(fail));
 	};
 
-	this.getComicPage = function()
+	// Get a comic page specified by the given ID
+	this.getComicPage = function(id, success, fail)
 	{
-
+		self.waiting = true;
+		$http.get("http://localhost:8080/comic/" + id, {
+			headers: {
+				"content-type": "application/json"
+			}
+		})
+		.then(standardResponse(success), standardResponse(fail));
 	};
 }]);
